@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: http://halal31.ru/sitemap.xml

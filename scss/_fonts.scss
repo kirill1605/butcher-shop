@@ -1,0 +1,33 @@
+$font-base-path: '../fonts/';
+
+@mixin font($family, $size, $weight, $color) {
+  $font-weight-name: '';
+
+  @if $weight ==500 {
+    $font-weight-name: 'Medium';
+  }
+
+  @else if $weight ==600 {
+    $font-weight-name: 'SemiBold';
+  }
+
+  @else if $weight ==700 {
+    $font-weight-name: 'Bold';
+  }
+
+  $font-path: '#{$font-base-path}#{$family}-#{$font-weight-name}';
+
+  @font-face {
+    font-family: '#{$family}';
+    font-weight: $weight;
+    font-display: swap;
+    src: url('#{$font-path}.woff2') format('woff2'),
+    url('#{$font-path}.woff') format('woff');
+  }
+
+  font-family: '#{$family}',
+  sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}

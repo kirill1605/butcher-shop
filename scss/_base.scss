@@ -1,0 +1,306 @@
+@use "colors";
+@use "fonts";
+
+body{
+  background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main{
+  flex-grow: 1;
+}
+
+p, a{
+  font-family: 'Arial';
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0px 20px;
+  max-width: 1440px;
+  min-width: 320px; 
+}
+
+.lock{
+  overflow: hidden;
+}
+
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  &:before{
+    content: '';
+    top: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: colors.$green;
+    z-index: 2;
+  }
+
+  &__burger{
+    display: none;
+    cursor: pointer;
+    transition: transform .3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:focus {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
+
+  &__wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  &__logo{
+    @include fonts.font('Roboto', 1.25rem, 500, colors.$lightgreen);
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    transition: transform .3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:focus {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
+  &__list{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+  }
+  &__link {
+    @include fonts.font('Roboto', 1.5rem, 500, colors.$lightgreen);
+    transition: transform .3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:focus {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
+}
+
+.page{
+  padding-top: 80px;
+
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center
+  }
+  &__text-box{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  &__title{
+    @include fonts.font('Montserrat', 1.5rem, 700, colors.$darkgreen);
+    text-align: center;
+    &-light{
+      color: colors.$green;
+    }
+  }
+  &__text{
+    @include fonts.font('Montserrat', 1.25rem, 500, colors.$darkgreen);
+    text-align: center;
+  }
+  &__img{
+    min-width: 280px;
+    max-width: 460px;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+  }
+}
+
+.about{
+  padding-top: 50px;
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+  &__title{
+    @include fonts.font('Montserrat', 2rem, 600, colors.$darkgreen);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__img{
+    display: none;
+    min-width: 280px;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    &_active{
+      display: block;
+    }
+  }
+  &__buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    cursor: pointer;
+  }
+  &__button{
+    transition: transform .3s ease;
+    &:hover{
+      transform: scale(1.1);
+    }
+    &:focus{
+      transform: scale(1.1);
+    }
+    &:active{
+      transform: scale(.9);
+    }
+  }
+  &__text-box{
+    max-width: 400px;
+  }
+  &__subtitle{
+    @include fonts.font('Montserrat', 1.5rem, 600, colors.$darkgreen);
+    margin-bottom: 10px;
+  }
+  &__text{
+    @include fonts.font('Montserrat', .85rem, 500, colors.$darkgreen);
+    text-align: justify;
+    max-width: 65ch;
+    line-height: 1.5;
+  }
+}
+
+[class*="copyrights-pane"] {
+  display: none !important;
+}
+
+.ymaps-2-1-79-copyright__logo {
+  display: none;
+}
+
+.address{
+  padding-top: 50px;
+  &__title{
+    @include fonts.font('Montserrat', 2rem, 600, colors.$darkgreen);
+    text-align: center;
+    margin-bottom: 20px
+  }
+  &__text{
+    @include fonts.font('Montserrat', 1.25rem, 500, colors.$darkgreen);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__map{
+    width: 100%;
+    height: 300px;
+    background-color: colors.$green;
+  }
+}
+
+.contacts{
+  margin-top: 50px;
+  margin-bottom: 100px;
+  &__title{
+    @include fonts.font('Montserrat', 2rem, 600, colors.$darkgreen);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__numbers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  &__number{
+    @include fonts.font('Montserrat', 1.25rem, 500, colors.$darkgreen);
+    transition: transform .3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:focus {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
+}
+
+.footer{
+  background-color: colors.$darkgreen;
+  flex-shrink: 0;
+
+  &__wrapper{
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    gap: 30px
+  }
+  &__logo{
+    @include fonts.font('Roboto', 2rem, 500, colors.$lightgreen);
+    text-align: center
+  }
+  &__address{
+    @include fonts.font('Montserrat', 1.25rem, 500, colors.$lightgreen);
+    text-align: center
+  }
+  &__number{
+    @include fonts.font('Montserrat', 1.25rem, 500, colors.$lightgreen);
+    transition: transform .3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:focus {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(.9);
+    }
+  }
+}
